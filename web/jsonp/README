@@ -1,0 +1,7 @@
+The idea here is to create a web page that utilizes JSONP to send sensitive data to the client.
+
+Requirements:
+- A bot client is authenticated to the sensitive domain
+- The bot client connects to the attacker-controlled page
+- The attacker can visit the sensitive page and authenticate to see his/her own version of the page.
+- The flag is some data within the JSONP javascript for the bot.
