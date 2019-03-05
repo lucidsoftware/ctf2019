@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <style>
+            #flag {
+                color: #00aa00;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Key Validation</h1>
+
+        <p>
+            Enter a key and click submit to validate it.
+        </p>
+
+        <input
+            type="text"
+            id="keyField"
+        >
+        <input
+            type="button"
+            id="submitButton"
+            value="Submit"
+        >
+
+        <p id="result"></p>
+        <p id="flag"></p>
+
+        <script>
+            document.getElementById('submitButton').addEventListener('click', function(e) {
+                    e.preventDefault();
+    
+                    document.getElementById('result').textContent = '';
+                    document.getElementById('flag').textContent = '';
+    
+                    var key = document.getElementById('keyField').value;
+    
+                    var req = new XMLHttpRequest();
+                    req.addEventListener('load', () => {
+                        var response = JSON.parse(req.responseText);
+                        if (response.valid) {
+                            document.getElementById('result').textContent = 'Valid!';
+                            document.getElementById('flag').textContent = 'Flag: ' + response.flag;
+                        } else {
+                            document.getElementById('result').textContent = 'Invalid!';
+                        }
+                    });
+                    req.open('POST', '/challenge');
+                    req.setRequestHeader('Content-Type', 'application/json');
+                    req.send(JSON.stringify({key: key}));
+                });
+        </script>
+    </body>
+</html>
