@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <string.h>
 
+void (*persistentPrint)(char const *str, ...) = &printf;
+
 const int KEY_LENGTH = 16;
 
 bool isValidLength(int keyLength) { return keyLength == KEY_LENGTH; }
@@ -96,11 +98,17 @@ bool hasNoColumnDuplicates(const char *key) {
   return noColumnDuplicates;
 }
 
+int invalidAndExit() {
+  persistentPrint("Key is invalid.\n");
+  return 1;
+}
+
 // Sample key: 53020EVCK02OTPYG
 
 int main(int argc, const char *argv[]) {
   if (argc < 2) {
-    printf("No key provided to validate.\n");
+    persistentPrint(
+        "Key not provided, usage: ./keyvalidation-challenge <key>\n");
     return 1;
   }
 
@@ -109,34 +117,34 @@ int main(int argc, const char *argv[]) {
 
   if (!isValidLength(keyLength)) {
     printf("Key has invalid length.\n");
-    return 1;
+    return invalidAndExit();
   }
 
   if (!hasValidCharacters(key)) {
     printf("Key has invalid characters.\n");
-    return 1;
+    return invalidAndExit();
   }
 
   if (!hasCorrectPrimes(key)) {
     printf("Key has invalid primes.\n");
-    return 1;
+    return invalidAndExit();
   }
 
   if (!quadrantsAreEven(key)) {
     printf("Key quadrants were not even.\n");
-    return 1;
+    return invalidAndExit();
   }
 
   if (!hasNoAdjacentDuplicates(key)) {
     printf("Key had adjacent duplicates.\n");
-    return 1;
+    return invalidAndExit();
   }
 
   if (!hasNoColumnDuplicates(key)) {
     printf("Key had column duplicates.\n");
-    return 1;
+    return invalidAndExit();
   }
 
-  printf("Key is valid.\n");
+  persistentPrint("Key is valid.\n");
   return 0;
 }

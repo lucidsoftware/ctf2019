@@ -13,7 +13,7 @@ challenge: keyvalidation.c
 	sed -i 's/hasNoColumnDuplicates/func8/g' keyvalidation-challenge.c
 	sed -i 's/noAdjacentDuplicates/var1/g' keyvalidation-challenge.c
 	sed -i 's/noColumnDuplicates/var2/g' keyvalidation-challenge.c
-	sed -i -E 's/printf(.*?);//g' keyvalidation-challenge.c
+	sed -i -E 's/printf\(.*?\);//g' keyvalidation-challenge.c
 	gcc keyvalidation-challenge.c -o keyvalidation-challenge
 
 run:
