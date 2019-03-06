@@ -2,12 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
     <head>
-        <title>Hello World!</title>
+        <title>Hello Page</title>
     </head>
-    <body>
-        <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
-        <form th:action="@{/logout}" method="post">
-            <input type="submit" value="Sign Out"/>
-        </form>
+    <body id="bootstrap-overrides">
+        <div  th:replace="fragments/mainFragment :: header">
+            Replaceable Header
+        </div>
+        <div class="container">
+            <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+            <span>The flag is CTF{First Zerg to the right, and straight on til mourning}</span>
+        </div>
     </body>
 </html>

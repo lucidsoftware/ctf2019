@@ -2,19 +2,61 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
     <head>
-        <title>Spring Security Example </title>
+        <title>Nexus Login Page</title>
+        <!--meta th:if="${#httpServletRequest.remoteUser}" http-equiv='refresh' content='0; URL=/' /-->
     </head>
-    <body>
-        <div th:if="${param.error}">
-            Invalid username and password.
+    <body id="bootstrap-overrides">
+        <div th:replace="fragments/mainFragment :: header"></div>
+        <div id="login_box" class="container">
+            <div class="d-flex justify-content-center h-100">
+		<div class="card">
+                    <div class="card-header">
+                        <h3>Sign In</h3>
+                        <div class="d-flex justify-content-end social_icon">
+                            <span><i class="fab fa-facebook-square"></i></span>
+                            <span><i class="fab fa-google-plus-square"></i></span>
+                            <span><i class="fab fa-twitter-square"></i></span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <span th:if="${param.error}">
+                            Invalid username and password.
+                        </span>
+                        <span th:if="${param.logout}">
+                            You have been logged out.
+                        </span>
+                        <form th:action="@{/login}" method="post">
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                </div>
+                                <input name="username" type="text" class="form-control" placeholder="username"></input>
+
+                            </div>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                </div>
+                                <input name="password" type="password" class="form-control" placeholder="password"></input>
+                            </div>
+                            <div class="row align-items-center remember">
+                                <input type="checkbox">Remember Me</input>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Login" class="btn float-right login_btn"></input>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-center links">
+                            Don't have an account?<a href="#">Sign Up</a>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <a href="#">Forgot your password?</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div th:if="${param.logout}">
-            You have been logged out.
-        </div>
-        <form th:action="@{/login}" method="post">
-            <div><label> User Name : <input type="text" name="username"/> </label></div>
-            <div><label> Password: <input type="password" name="password"/> </label></div>
-            <div><input type="submit" value="Sign In"/></div>
-        </form>
     </body>
 </html>
