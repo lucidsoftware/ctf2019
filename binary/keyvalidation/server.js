@@ -33,6 +33,10 @@ app.post('/challenge', (req, res) => {
     }
 });
 
+app.get('/binary', (req, res) => {
+    res.sendFile(path.join(__dirname, `keyvalidation-challenge`));
+});
+
 const server = app.listen(11011);
 
 process.on('SIGINT', function () {
