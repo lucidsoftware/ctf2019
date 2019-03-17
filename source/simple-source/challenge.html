@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head> <title>Lucid CTF Challenge</title></head>
+
+<body>
+
+<?  
+ $encodedSecret = "3d3d41566f64554d533956524f424452664e5654424a315242464452";  
+ function encodeSecret($secret) {  
+   return bin2hex(strrev(base64_encode($secret)));  
+ }  
+ if(array_key_exists("submit", $_POST)) {  
+   if(encodeSecret($_POST['secret']) == $encodedSecret) {  
+   print "Access granted";  
+   } else {  
+   print "Wrong";  
+   }  
+ }  
+ ?>  
+
+<form method=post>  
+	Input secret: <input name=secret><br>  
+	<input type=submit name=submit>  
+</form>  
+</body>  
+</html>  
