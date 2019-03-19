@@ -1,13 +1,19 @@
 #Dockerfile for the StarAuth Challenge
-FROM openjdk:11
+FROM ubuntu:latest
 MAINTAINER Nathan Cooper nathan@lucidchart.com 
 
 RUN apt-get update && \
     apt-get upgrade -y && \
+    apt-get install npm build-essential -y && \
     mkdir /app && \
     apt-get clean
 
-COPY target/StarAuth-1.0-SNAPSHOT.jar /app
+WORKDIR /app
 
-EXPOSE 8080
-CMD ["java", "-jar", "/app/StarAuth-1.0-SNAPSHOT.jar"]
+COPY . .
+
+RUN make
+RUN npm install
+
+EXPOSE 11011
+CMD ["node", "/app/server.js"]
