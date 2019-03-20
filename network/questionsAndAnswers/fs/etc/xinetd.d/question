@@ -1,0 +1,11 @@
+service questionAnswer
+{
+        disable = no
+        protocol = tcp
+        server = /opt/questionAnswer.sh
+        user = nobody
+        socket_type = stream
+        wait = no
+}
+#//stream, dgram, raw, or seqpacket
+#yes = single-threaded, no = multithreaded
