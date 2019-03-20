@@ -8,3 +8,10 @@
 - Riddle answer: `paper`, `cross site scripting (or xss)`, `tom sawyer`
 - User will need to decode the base64 encrypted string: `echo <string> | base64 -d`
 - Key: ```flag{youShouldntUseTelnet}```
+
+###Setup notes:
+
+- Make sure that `xinitd` is installed: `sudo apt get install xinitd`.
+- Copy the files in the `fs` directory to their respective locations.
+- Configure UFW to allow port 50089. `ufw allow 50089/tcp`
+- Enable UFW. `sudo ufw enable`.
