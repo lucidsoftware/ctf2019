@@ -6,6 +6,9 @@ This challenge is about **⁠⁠⁠web application security**⁠⁠⁠. There ar
 The solution to this challenge can be found in [SOLUTION.md](SOLUTION.md).
 
 ## Setup 
-1. Setup a server with PHP and MySQL support. https://www.apachefriends.org/index.html
+1. docker build -t test-app .
 
-2. Install the Linux version. Once you have the linux verion installed, import the database from db/security_challenge.sql
+2. docker run -p 80:80 --name= test-app
+
+3. Go to localhost/myapp
+
