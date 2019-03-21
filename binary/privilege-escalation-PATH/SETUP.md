@@ -2,7 +2,9 @@ To setup this challenge it is critical that the files have the right permissions
 
 1. The owner of the following files should be someone other than the user who the students will use to ssh into the machine. 
 	a. challenge.c
+	
 	b. challenge - Permissions chmod u+s on this file
+	
 	c. getflag - Permissions 700 on this file
 
 2. To verify :-
