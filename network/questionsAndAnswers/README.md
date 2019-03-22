@@ -15,3 +15,7 @@
 - Copy the files in the `fs` directory to their respective locations.
 - Configure UFW to allow port 50089. `ufw allow 50089/tcp`
 - Enable UFW. `sudo ufw enable`.
+
+###Docker Setup notes:
+- docker build -t questionanswer .;docker run --rm --name questionanswer -p 50089:50089 questionanswer
+
