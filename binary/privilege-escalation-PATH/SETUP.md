@@ -14,3 +14,6 @@ Note: Verify with Shaunak that the permissions are correct and the ctf has been 
 
 docker build -t priv_escalation .
 docker run --rm --name priv_escalation -p 2222:22 priv_escalation
+
+ssh -i cookooEgg.rsa sam@13.56.161.35 -p 2222
+
