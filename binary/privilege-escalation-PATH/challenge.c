@@ -14,5 +14,5 @@ int main(int argc, char **argv, char **envp)
   setresgid(gid, gid, gid);
   setresuid(uid, uid, uid);
 
-  system("/usr/bin/env echo blah blah blah");
+  system("cat ${test_file} message.txt");
 }

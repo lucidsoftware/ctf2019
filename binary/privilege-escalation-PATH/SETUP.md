@@ -12,3 +12,5 @@ Log into the machine as the user that the students are going to use. You should 
 
 Note: Verify with Shaunak that the permissions are correct and the ctf has been setup in the right way.
 
+docker build -t priv_escalation .
+docker run --rm --name priv_escalation -p 2222:22 priv_escalation
