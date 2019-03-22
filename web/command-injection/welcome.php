@@ -1,4 +1,5 @@
-<?php
+<?php	
+include('session.php');
 if( isset( $_POST[ 'submit' ]  ) ) {
 	$target = $_REQUEST[ 'ip' ];
 
@@ -39,7 +40,7 @@ if( isset( $_POST[ 'submit' ]  ) ) {
 		<div class="container">
 			<h1>Welcome</h1>
 			<a href="logout.php"><button type="button" class="btn btn-primary">Log Out</button></a>
-			<h3>Test Ping</h3> 
+			<h3>Test Ping</h3>
 			<form method="post" action="" class="form-search">
 				<div class="row">
 					<div class="col-xs-12 col-sm-6 col-md-4">
