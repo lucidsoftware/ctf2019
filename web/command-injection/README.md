@@ -1,14 +1,14 @@
-# Command injection challenge
+# SQL injection challenge
 
-This challenge is about **⁠⁠⁠web application security**⁠⁠⁠. This challenge is specially about command injection. 
-
+This challenge is about **⁠⁠⁠web application security**⁠⁠⁠. There are a couple of flags that you can get in this challenge. The first flag is easier to find and the second flag would require some knowledge about how union queries are executed.
 
 ## Solution
 The solution to this challenge can be found in [SOLUTION.md](SOLUTION.md).
 
-## Setup
-1. Setup a server with PHP and MySQL support. https://www.apachefriends.org/index.html
+## Setup 
+1. docker build -t test-app .
 
-2. Install the Linux version. Once you have the linux verion install import the database from db/security_challenge.sql
+2. docker run -it -p 80:80 --name= test-app
 
-3. Ensure that the flag.txt file is under the same directory
+3. Go to localhost/myapp
+
