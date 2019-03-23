@@ -2,15 +2,15 @@
 
 # Bash script to setup sql-injection challenge
 
-apt-get remove --purge mysql*
+#apt-get remove --purge mysql*
 # 1. Install apache server
-apt-get install apache2 -y
+#apt-get install apache2 -y
 
 # 2. Start apache service
-service apache2 start
+#service apache2 start
 
 # 3. Install mysql-server
-apt-get install mysql-server -y
+#apt-get install mysql-server -y
 
 # 4. Start mysql service
 service mysql start
@@ -23,3 +23,5 @@ mysql security_challenge < DoNotLookHereDude/db/security_challenge.sql
 mysql -e "CREATE USER 'sec_user'@'localhost' IDENTIFIED BY 'DgWWTcq!SfjP49Xr'";
 mysql -e "GRANT ALL PRIVILEGES ON security_challenge.* TO 'sec_user'@'localhost'";
 
+# 7. Cleanup
+rm README.md SOLUTION.md install-setup.sh Dockerfile 

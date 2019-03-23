@@ -5,10 +5,11 @@ MAINTAINER Shaunak Shah sshah@lucidchart.com
 
 RUN apt-get update && \
     apt-get upgrade -y && \
+    apt-get remove --purge mysql* && \
+    apt-get install mysql-server apache2 -y && \
     mkdir -p /var/www/html/myapp && \
-    apt-get clean
- 
-RUN rm -rf /var/www/html/index.html
+    apt-get clean && \
+    rm /var/www/html/index.html
 
 WORKDIR /var/www/html/myapp
 
@@ -18,4 +19,5 @@ RUN bash install-setup.sh
 
 EXPOSE 80
 
-ENTRYPOINT service mysql start && service apache2 start && /bin/bash
+CMD /var/www/html/myapp/run.sh
+
